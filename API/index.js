@@ -1,6 +1,7 @@
 const app = require ('./app');
 const db = require ('./config/db');
 const UserModel = require ('./model/user.model');
+const PratosModel = require ('./model/pratos.model');
 
 const port = 3000;
 
