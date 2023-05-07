@@ -11,6 +11,26 @@ exports.register = async(req,res,next) =>{
         throw error
     }
 }
+exports.recoverpassword = async(req,res,next) =>{
+    try{
+        const {email} = req.body;
+
+        const user = await UserServices.checkuser(email);
+
+        if(!user)
+        {
+            return ("Esse user nao existe");
+        }
+        
+        const sending = await UserServices.recoverpassword(email);
+
+        res.json ({status:true,success: "Send Successfully"});
+
+
+    }catch (error){
+        throw error
+    }
+}
 
 exports.login = async(req,res,next) =>{
     try {
